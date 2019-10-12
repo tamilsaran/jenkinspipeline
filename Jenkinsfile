@@ -3,12 +3,11 @@ pipeline {
     stages {
         stage('Build') {
             agent {
-                label 'dev'
+                label 'test'
             }
             steps {
                 checkout scm
-                sh 'make'
-                stash includes: '**/target/*.jar', name: 'app' 
+                sh 'pwd'
             }
         }
         stage('Test on Linux') {
