@@ -33,7 +33,7 @@ pipeline {
                 label 'test'
             }
             steps {
-                sh 'echo Done'
+                sh 'echo $env.BRANCH_NAME'
             }
         }
     }
