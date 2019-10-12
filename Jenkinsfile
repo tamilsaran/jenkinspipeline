@@ -17,11 +17,6 @@ pipeline {
             steps {
                 sh 'uname -a'
             }
-            post {
-                always {
-                    junit '**/target/*.xml'
-                }
-            }
         }
         stage('Test on Windows') {
             agent {
