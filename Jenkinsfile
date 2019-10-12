@@ -2,6 +2,11 @@ pipeline {
     agent none
     stages {
         stage('Build') {
+            when {
+                anyOf {
+                    branch 'master'; branch 'develop'
+                }
+            }
             agent {
                 label 'test'
             }
@@ -11,6 +16,11 @@ pipeline {
             }
         }
         stage('Test on Linux') {
+            when {
+                anyOf {
+                    branch 'master'; branch 'develop'
+                }
+            }
             agent { 
                 label 'test'
             }
@@ -20,16 +30,10 @@ pipeline {
         }
         stage('Test on Windows') {
             agent {
-                label 'windows'
+                label 'test'
             }
             steps {
-                unstash 'app'
-                bat 'make check' 
-            }
-            post {
-                always {
-                    junit '**/target/*.xml'
-                }
+                sh 'echo Done'
             }
         }
     }
