@@ -2,13 +2,13 @@ pipeline {
     agent none
     stages {
         stage('Build') {
-            agent {
-                label 'test'
-            }
             when {
                 expression {
                     return env.BRANCH_NAME == null;
                 }
+            }
+            agent {
+                label 'test'
             }
             steps {
                 echo 'run this stage - ony if the branch = master branch'
