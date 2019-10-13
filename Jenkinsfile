@@ -3,16 +3,13 @@ pipeline {
     stages {
         stage('Build') {
             when {
-                anyOf {
-                    branch 'master'; branch 'develop'
-                }
+                branch 'master'
             }
             agent {
                 label 'test'
             }
             steps {
-                checkout scm
-                sh 'pwd'
+                echo 'run this stage - ony if the branch = master branch'
             }
         }
         stage('Test on Linux') {
