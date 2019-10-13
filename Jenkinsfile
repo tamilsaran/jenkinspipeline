@@ -6,7 +6,9 @@ pipeline {
                 label 'test'
             }
             when {
-                branch 'master'
+                expression {
+                    return env.BRANCH_NAME == 'master';
+                }
             }
             steps {
                 echo 'run this stage - ony if the branch = master branch'
