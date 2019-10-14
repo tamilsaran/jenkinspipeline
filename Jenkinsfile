@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'run this stage - only if the branch = test branch = 8'
+                echo 'run this stage - only if the branch = test branch'
             }
         }
         stage('Test on Linux') {
             steps {
-                sh 'uname -a'
+                sh 'pwd'
             }
         }
         stage('Test on Windows') {
