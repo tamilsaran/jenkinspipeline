@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'hawksight-test' }
+    agent { label 'hawksighttest' }
     stages {
         stage('Build') {
             steps {
