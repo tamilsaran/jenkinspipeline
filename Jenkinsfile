@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'run this stage - ony if the branch = master branch'
+                echo 'run this stage - only if the branch = master branch'
             }
         }
         stage('Test on Linux') {
