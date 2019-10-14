@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'run this stage - only if the branch = test branch'
+                echo 'run this stage - only if the branch = test branch = 8'
             }
         }
         stage('Test on Linux') {
