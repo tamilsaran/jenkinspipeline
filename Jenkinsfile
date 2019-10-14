@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent { label 'demo_test' }
     stages {
         stage('Build') {
             when {
