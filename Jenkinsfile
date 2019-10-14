@@ -1,36 +1,17 @@
 pipeline {
-    agent { label 'demo_test' }
+    agent { label 'demotest' }
     stages {
         stage('Build') {
-           //# when {
-           //#     expression {
-           //#         return env.BRANCH_NAME == null;
-           //#     }
-           //# }
-           //# agent {
-           //#     label 'test'
-           //# }
             steps {
                 echo 'run this stage - ony if the branch = master branch'
             }
         }
         stage('Test on Linux') {
-           // #when {
-           // #    anyOf {
-           // #        branch 'master'; branch 'develop'
-           // #    }
-           // #}
-           // #agent { 
-           // #    label 'test'
-           // #}
             steps {
                 sh 'uname -a'
             }
         }
         stage('Test on Windows') {
-           // #agent {
-           // #    label 'test'
-           // #}
             steps {
                 echo "We are currently working on branch: ${env.BRANCH_NAME}"
                 sh 'echo $env.BRANCH_NAME'
