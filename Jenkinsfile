@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Test on Linux') {
             steps {
-                sh 'uname -a'
+                sh 'date'
             }
         }
         stage('Test on Windows') {
