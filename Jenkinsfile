@@ -13,8 +13,7 @@ pipeline {
         }
         stage('Test on Windows') {
             steps {
-                echo "We are currently working on branch: ${env.BRANCH_NAME}"
-                sh 'echo $env.BRANCH_NAME'
+                sh 'ip a'
             }
         }
     }
