@@ -38,7 +38,7 @@ pipeline {
                                     execCommand: "cd /home/ubuntu/hwk-srm-frontend/;pwd"
                                 ),
                                 sshTransfer(
-                                    execCommand: "cd /home/ubuntu/hwk-srm-frontend/;pwd"
+                                    execCommand: "pwd"
                                 )
                             ])
                         ])
