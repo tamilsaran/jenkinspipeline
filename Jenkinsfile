@@ -2,7 +2,7 @@ pipeline {
     agent none
     stages {
         stage('Develop') {
-            agent { label 'develop' }
+            agent { label 'hello' }
             steps {
                 script {
                     if (env.BRANCH_NAME == 'develop') {
