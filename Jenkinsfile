@@ -1,19 +1,31 @@
 pipeline {
-    agent any
+    agent none
     stages {
         stage('Build') {
-            steps {
-                echo 'only if the branch = master branch = 7'
+            if(env.BRANCH_NAME == 'develop')
+            {
+                agent { label 'develop' }
+                steps {
+                    sh 'echo Its develop'
+                }
             }
         }
-        stage('Test on Linux') {
-            steps {
-                sh 'date'
+        stage('Build') {
+            if(env.BRANCH_NAME == 'test')
+            {
+                agent { label 'test' }
+                steps {
+                    sh 'echo Its test'
+                }
             }
         }
-        stage('Test on Windows') {
-            steps {
-                sh 'ip a'
+        stage('Build') {
+            if(env.BRANCH_NAME == 'stage')
+            {
+                agent { label 'stage' }
+                steps {
+                    sh 'echo Its stage'
+                }
             }
         }
     }
