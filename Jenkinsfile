@@ -20,11 +20,8 @@ pipeline {
             agent none
             steps {
                 script {
-                    if (env.BRANCH_NAME == 'test') {
-                        sh 'docker ps -q | xargs -r docker kill'
-                        sh 'docker images -f dangling=true -q | xargs -r -n1 docker rmi -f'
-                        sh 'docker-compose rm -f -v'
-                        sh 'git pull && docker-compose up --build -d'
+                    if (env.BRANCH_NAME == 'master') {
+                       echo "Got wrong"
                     } else {
                         echo 'Branch Not Found'
                     }
