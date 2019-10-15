@@ -1,11 +1,12 @@
 pipeline {
-    agent any
+    agent none
     stages {
         stage('test3') {
             steps {
                 script {
                     if (env.BRANCH_NAME == 'master') {
-                        echo 'I only execute on the master branch'
+                        agent { label 'develop' }
+                        echo 'I only execute on the develop branch'
                     } else {
                         echo 'I execute elsewhere'
                     }
