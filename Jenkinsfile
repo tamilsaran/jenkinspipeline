@@ -1,15 +1,20 @@
+def agentLabel
+if (env.BRANCH_NAME == 'master')  {
+    agentLabel = "test"
+} else {
+    agentLabel = "test"
+}
+
+
 pipeline {
     agent none
     stages {
         stage('Develop') {
-            agent { label 'hello' }
+            agent { label agentLabel }
             steps {
                 script {
-                    if (env.BRANCH_NAME == 'develop') {
-                        sh 'docker ps -q | xargs -r docker kill'
-                        sh 'docker images -f dangling=true -q | xargs -r -n1 docker rmi -f'
-                        sh 'docker-compose rm -f -v'
-                        sh 'git pull && docker-compose up --build -d'
+                    if (env.BRANCH_NAME == 'master') {
+                        echo "Def worked"
                     } else {
                         echo 'Branch Not Found'
                     }
