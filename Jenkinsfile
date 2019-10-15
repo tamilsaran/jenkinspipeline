@@ -1,19 +1,31 @@
 pipeline {
-    agent { label 'hawksighttest' }
+    agent none
     stages {
         stage('Build') {
-            steps {
-                echo 'run this stage - only if the branch = test branch'
+            if(env.BRANCH_NAME == 'develop')
+            {
+                agent { label 'develop' }
+                steps {
+                    sh 'echo Its develop'
+                }
             }
         }
-        stage('Test on Linux') {
-            steps {
-                sh 'pwd'
+        stage('Build') {
+            if(env.BRANCH_NAME == 'test')
+            {
+                agent { label 'test' }
+                steps {
+                    sh 'echo Its test'
+                }
             }
         }
-        stage('Test on Windows') {
-            steps {
-                sh 'ip a'
+        stage('Build') {
+            if(env.BRANCH_NAME == 'stage')
+            {
+                agent { label 'stage' }
+                steps {
+                    sh 'echo Its stage'
+                }
             }
         }
     }
