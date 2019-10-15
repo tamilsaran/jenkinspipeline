@@ -35,7 +35,8 @@ pipeline {
                                 configName: "hawksighttest",
                                 transfers: [
                                 sshTransfer(
-                                    execCommand: "cd /home/ubuntu/hwk-srm-frontend;pwd"
+                                    execCommand: "cd /home/ubuntu/hwk-srm-frontend/;pwd",
+                                    execCommand: "pwd"
                                 )
                             ])
                         ])
